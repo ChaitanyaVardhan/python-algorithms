@@ -1,25 +1,20 @@
-def main():
-    arr1 = []
-    l1 = int(input())
-    for i in range(l1):
-        arr1.append(int(input()))
-    mid = l1 // 2
-    print(arr1[0:mid])
-    print(arr1[mid:l1])    
-    half1 = divide(arr1[0:mid])
-    half2 = divide(arr1[mid:l1])
-    merged_arr = merge(half1, half2)
-    print(merged_arr)
+import time
 
 
-def divide(arr):
+def merge_sort(arr):
     if len(arr) == 1:
         return arr
     mid = len(arr) // 2
-    h1 = divide(arr[0:mid])
-    h2 = divide(arr[mid:len(arr)])
-    merged_arr = merge(h1, h2)
+    arr_lh = arr[0:mid]
+    arr_rh = arr[mid:len(arr)]
+    # print(arr_lh)
+    # print(arr_rh)
+    arr_lh = merge_sort(arr_lh)
+    arr_rh = merge_sort(arr_rh)
+    merged_arr = merge(arr_lh, arr_rh)
+    # print(merged_arr)
     return merged_arr
+
 
 def merge(arr1, arr2):
     i = 0
@@ -49,4 +44,14 @@ def merge(arr1, arr2):
 
 
 if __name__ == "__main__":
-    main()
+    arr1 = []
+    l1 = int(input())
+    for i in range(l1):
+        arr1.append(int(input()))    
+    start = time.time()
+    sorted_array = merge_sort(arr1)
+    end = time.time()
+    print(f"Total time: {end-start}")
+    for i in range(len(sorted_array)):
+        print(sorted_array[i])
+    
