@@ -1,3 +1,9 @@
+# Merge sort algortihm to sort integers
+# Input - A text file where line 1 is num of integers in file.
+#         The lines following line 1 are the integers
+# Output - A text file with integers in sorted order
+# Run from cmd line python merge_sort.py < input.txt > output.txt
+
 import time
 
 
