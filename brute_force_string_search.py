@@ -1,22 +1,19 @@
-def brute_force(string, pattern):
-    l = len(pattern)
-    j = 0
+def brute_force(S, P):
+    l = len(P)
+    i = 0
     start = 0
-    print(f"len of string: {len(string)}")
-    print(f"len of pttern: {len(pattern)}")
-    while j < len(string) - len(pattern):
+    while start < len(S) - len(P):
+        while True:
+            print(f"i: {i}")
+            print(f"start: {start}")            
+            if P[i] == S[start+i]:
+                i += 1
+            else:
+                break
+            if i == l:
+                return start
+        start += 1
         i = 0
-        j = start
-        print(f"i: {i}")
-        print(f"j: {j}")
-        while (pattern[i] == string[j]
-               and i < len(pattern)):
-            i += 1
-            j += 1
-        if i == l:
-            return start
-        else:
-            start += 1
     return -1
 
 
@@ -32,5 +29,8 @@ if __name__ == "__main__":
     input_str = " ".join(line for line in lines)
     print(f"pattern: {pattern}")
     print(f"String: {input_str}")
+    print(f"len of string: {len(S)}")
+    print(f"len of pttern: {len(P)}")    
     index = brute_force(input_str, pattern)
     print(f"index {index}")
+    print(f"inbuilt: {input_str.find(pattern)}")
