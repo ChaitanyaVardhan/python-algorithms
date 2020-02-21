@@ -35,10 +35,3 @@ if __name__ == "__main__":
     print(f"Time taken: {end-start}")
     for i in range(len(arr)):
         print(arr[i])
-
-                   
-    
-
-                   
-                   
-                   
