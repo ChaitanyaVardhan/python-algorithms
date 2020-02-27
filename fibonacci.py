@@ -31,7 +31,8 @@ def fib_bottom_up(n):
         fib_arr[i] = fib_arr[i-1] + fib_arr[i-2]
         i += 1
     return fib_arr[n-1]
-    
+
+
 if __name__ == "__main__":
     n = int(sys.argv[1])
     start = time.time()
